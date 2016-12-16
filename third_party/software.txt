@@ -1,0 +1,20 @@
+
+To install the software, use the scripts in the third_party directory.
+For these to work some additional packages are required:
+    i. wget - should be already included on linux, mac requires MACPORTS or FINK software, then use apt-get install wget
+    ii. cmake - script included for this also
+
+If both of these are installed then:
+   i. Setup environment variable $THIRD_PARTY_DIR to point to this directory
+   ii. Source install_all.sh in scripts directory
+
+If root fails to compile and this message occurs in the root build log file:
+
+  Checking for libXpm ... /sw/lib
+  Checking for libXft ... /sw/lib
+  Checking for libXext ... /usr/X11R6/lib
+  configure: libXext not in same directory as libX11
+  For consistency they should be in the same directory
+
+Then you need to copy all libXpm* and libXft* and libXext* into the same directory i.e /sw/lib
+to ensure consistency and then root can configure
